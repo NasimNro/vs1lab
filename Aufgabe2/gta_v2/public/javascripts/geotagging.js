@@ -9,6 +9,7 @@
 // Try to find this output in the browser...
 console.log("The geoTagging script is going to start...");
 
+
 /**
  * A class to help using the HTML5 Geolocation API.
  */
@@ -104,7 +105,20 @@ class MapManager {
  */
 // ... your code here ...
 
+function updateLocation() {
+    LocationHelper.findLocation(function(locationHelper) {
+        const latitudeInput = document.getElementById('tagging_latitude');
+        const longitudeInput = document.getElementById('tagging_longitude');
+        latitudeInput.value = locationHelper.latitude;
+        longitudeInput.value = locationHelper.longitude;
+
+    });
+}
+
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    LocationHelper.findLocation(updateLocation);
+    const mapManager = new MapManager('3VkrTyuWjAmV5eQbS0EsHC7jVrtsSoyg');
+    const mapUrl = mapManager.getMapUrl(locationHelper.latitude,locationHelper.longitude, tags, zoom);
+    console.log(mapUrl);
 });
