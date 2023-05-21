@@ -105,22 +105,20 @@ class MapManager {
  */
 // ... your code here ...
 
-function updateLocation() {
-    LocationHelper.findLocation(function(locationHelper) {
+function updateLocation(LocationHelper) {
         const latitudeInput = document.getElementById('tagging_latitude');
         const longitudeInput = document.getElementById('tagging_longitude');
         const discoveryLongitude = document.getElementById('discovery_longitude');
         const discoveryLatitude = document.getElementById('discovery_latitude');
         const Map = document.getElementById('mapView');
-        latitudeInput.value = locationHelper.latitude;
-        longitudeInput.value = locationHelper.longitude;
-        discoveryLongitude.value = locationHelper.longitude;
-        discoveryLatitude.value = locationHelper.latitude;
+        latitudeInput.value = LocationHelper.latitude;
+        longitudeInput.value = LocationHelper.longitude;
+        discoveryLongitude.value = LocationHelper.longitude;
+        discoveryLatitude.value = LocationHelper.latitude;
         const mapManager = new MapManager('3VkrTyuWjAmV5eQbS0EsHC7jVrtsSoyg');
-        const mapUrl = mapManager.getMapUrl(locationHelper.latitude,locationHelper.longitude,[], 15); 
+        const mapUrl = mapManager.getMapUrl(LocationHelper.latitude,LocationHelper.longitude,[], 15); 
         Map.src = mapUrl;
         console.log(mapUrl);
-    });
 }
 
 // Wait for the page to fully load its DOM content, then call updateLocation
