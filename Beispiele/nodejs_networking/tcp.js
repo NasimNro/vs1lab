@@ -1,8 +1,10 @@
 "use strict";
 // const erzeugt Konstanten
+const path = require('path');
+const filename = path.resolve(__dirname, 'todos.txt');
 const fs = require('fs'),
 	net = require('net'),
-	filename = 'todos.txt',
+	
 	// Hier wird der Server erzeugt
 	server = net.createServer(function(connection) {
 		// Bei einer neuen Verbindung wird diese Funktion ausgeführt
