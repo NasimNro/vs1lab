@@ -26,8 +26,9 @@ function updateLocation() {
     latitudeElement.value === "" ||
     longitudeElement.value === "" ||
     hiddenLatitudeElement.value === "" ||
-    hiddenLongitudeElement.value === "" 
-    
+    hiddenLongitudeElement.value === "" ||
+    mapViewElement.src.includes("images/mapview.jpg")
+
   ) {
     LocationHelper.findLocation(({ latitude, longitude }) => {
       latitudeElement.value = latitude;
