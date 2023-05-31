@@ -1,0 +1,429 @@
+  /*
+  File origin: VS1LAB A1b  
+
+  CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).
+  CSS variables used for clarity and themability (e.g. through SSR). 
+  Inherited box sizing used for ease of including 3rd party content-box components.
+*/
+
+/* Global styling */
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  /* This approach prevents issues with 3rd party content-box components */
+  box-sizing: inherit;
+}
+
+
+/* Variables (example: see declaration for "a" below) */
+
+:root {
+  --link-color: #00B7FF;
+  --background-color: #efefef;
+  --border-color: #cdcdcd;
+  --gray-color: #666;
+}
+
+
+/* HTML element styles */
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--link-color);
+}
+
+/* ### TODO ### Styles for other HTML elements */
+
+/* ... your code here ... */
+
+
+/* Grid styles (no changes required) */
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.col-1 {
+  width: calc(8.33% - 1rem);
+
+}
+
+.col-2 {
+  width: calc(16.66% - 1rem);
+}
+
+.col-3 {
+  width: calc(25% - 1rem);
+}
+
+.col-4 {
+  width: calc(33.33% - 1rem);
+}
+
+.col-5 {
+  width: calc(41.66% - 1rem);
+}
+
+.col-6 {
+  width: calc(50% - 1rem);
+}
+
+.col-7 {
+  width: calc(58.33% - 1rem);
+}
+
+.col-8 {
+  width: calc(66.66% - 1rem);
+}
+
+.col-9 {
+  width: calc(75% - 1rem);
+}
+
+.col-10 {
+  width: calc(83.33% - 1rem);
+}
+
+.col-11 {
+  width: calc(91.66% - 1rem);
+}
+
+.col-12 {
+  width: calc(100% - 1rem);
+}
+
+
+/* ### TODO ### Styles for Header Component */
+.header {
+  background-color: #e9eef0;
+  display: flex;
+  height: 100PX;
+  flex-direction: row;
+  justify-content: stretch;
+  justify-content: space-between;
+  align-items: center;
+}
+
+img#haed_image {
+  height: 40px;
+  margin-left: 5%;
+}
+
+.header__title {
+  position: relative;
+}
+
+.header__navigation {
+  position: relative;
+  margin-right: 5%;
+
+}
+
+/* ... your code here ... */
+
+
+/* ### TODO ### Styles for Main Component */
+input {
+  align-items: center;
+  display: block;
+  padding-left: 5px;
+}
+
+input::placeholder{
+  padding-left: -5px;
+}
+
+label {
+  margin-left: 17px;
+  display: block;
+  margin-bottom: 5px;
+  opacity: 80%;
+}
+
+.main{
+  justify-content: center;
+  margin-top: 3%;
+}
+
+
+
+/* ... your code here ... */
+
+
+/* ### TODO ### Styles for Tagging component */
+
+.main__tagging{
+  margin-left: 50px;
+}
+
+.tagging_input {
+  margin-bottom: 20px;
+  margin-left: 17px;
+  margin-right: 0%;
+  height: 40px;
+  width: 80%;
+  
+}
+
+legend#tagging_legend {
+  margin-left: 17px;
+  margin-bottom: 10px;
+  text-decoration: solid;
+
+}
+
+fieldset#tagging_fieldset {
+  border-width: 1px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+
+/* ... your code here ... */
+
+
+/* ### TODO ### Styles for Discovery component */
+
+.main__discovery{
+  margin-right: 50px;
+  margin-left: 50px;
+  
+}
+
+.disvovery_input {
+  margin-left: 17px;
+  margin-bottom: 20PX;
+  height: 40px;
+  width: 27%;
+ 
+}
+
+
+legend#search_legend {
+  margin-left: 17px;
+  margin-bottom: 10px;
+}
+
+fieldset#discovery_fieldset {
+  border-width: 1px;
+  margin-top: 10px;
+}
+
+
+img#mapView {
+  width: 55%;
+
+  min-height: 214px;
+  min-width: 214px;
+  margin-top: 0%;
+  margin-top: 2.5%;
+  margin-left: 4%;
+}
+
+span#result_map{
+  margin-left: 4%;
+}
+
+
+.discovery__taglist {
+  margin-top: 2%;
+}
+
+.discovery__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  justify-content: space-between;
+}
+
+.locations {
+  padding-left: 2%;
+}
+
+
+
+.discovery__results li {
+  border: 1px solid #ccc;
+  padding: 25px 0;
+  margin-bottom: 3%;
+  color: #15bce6;
+  padding-left: 3%;
+  background-color: #e9eef0;
+  width: 80%;
+  padding: 3%;
+}
+
+.discovery__map {
+  display: flex;
+  flex-direction: column;  
+  align-items: flex-start;
+  width: 60%;
+  
+} 
+
+.discovery__results li.locations {
+  list-style: none;  
+}
+
+
+
+/* ... your code here ... */
+
+
+/* ### TODO ### Styles for Footer Component */
+footer {
+  background-color: #e9eef0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* ... your code here ... */
+
+
+/* ### TODO ### Media Queries */
+
+@media screen and (max-width: 990px){
+
+  .discovery__wrapper{
+    
+  }
+
+  .discovery__map{
+    justify-content: left;
+    align-items: center;
+  }
+  
+  .tagging_input {
+    margin-bottom: 20px;
+    margin-left: 17px;
+    margin-right: 0%;
+  
+  }
+  
+  legend#tagging_legend {
+    margin-left: 17px;
+    margin-bottom: 10px;
+    text-decoration: solid;
+  
+  }
+  
+  fieldset#tagging_fieldset {
+    border-width: 1px;
+    margin-top: 10px;
+    width: 200px;
+  
+  }
+
+  
+
+  .discovery__map {
+    display: flex;
+    flex-direction: column;  
+    align-items: flex-start;
+  
+  } 
+}
+
+ /* fuer Mobile geraete */
+@media only screen and (max-width: 700px) {
+  main{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main__tagging{
+    width: 80%;
+
+  }
+
+  .main__discovery{
+    width: 80%;
+    margin-top: 5%;
+  }
+  .tagging_input {
+    margin-bottom: 20px;
+    margin-left: 17px;
+    margin-right: 0%;
+    height: 40px;
+    width: 80%;
+  }
+  .disvovery_input{
+    width: 80%;
+  }
+  
+  fieldset#tagging_fieldset {
+    border-width: 1px;
+    margin-top: 10px;
+    width: 90%;
+  }
+
+ 
+
+  fieldset#discovery_fieldset {
+    border-width: 1px;
+    margin-top: 10px;
+    width: 90%;
+  }
+
+  .discovery__wrapper{
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .discovery__taglist{
+    width: 80%;
+
+  }
+  .discovery__map{
+    width: 100%;
+    margin-left: 0%;
+  }
+
+ img#mapView{
+  width: 90%;
+  margin-left: 0%;
+ }
+
+ span#result_map{
+  margin-left: 0%;
+
+}
+
+ .discovery__results li {
+  border: 1px solid #ccc;
+  padding: 25px 0;
+  margin-bottom: 3%;
+  color: #15bce6;
+  padding-left: 3%;
+  background-color: #e9eef0;
+  width: 112.5%;
+}
+
+
+}
+@media only screen and (max-width: 450px){
+
+  .header__navigation{
+    display: flex;
+    flex-direction: column;
+  }  
+}
+/* ... your code here ... */
