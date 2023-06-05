@@ -29,18 +29,13 @@ class InMemoryGeoTagStore {
       this.#geotags.push(geotag);
     }
   
-    getGeoTags() {
-      return this.#geotags;
-    }
-  
     removeGeoTag(name) {
       this.#geotags = this.#geotags.filter((geotag) => geotag.name !== name);
     }
   
     /*
-      Diese Methode nimmt die Breitengrad-, Längengrad- und Radiuswerte als Eingabeparameter entgegen 
-      und gibt ein Array von Geotags zurück, die innerhalb des angegebenen Radius von der angegebenen Position
-      entfernt sind. Es verwendet die euklidische Norm / Satz des Pythagoras, um die Entfernung zwischen jedem Geotag 
+      Diese Methode gibt ein Array von Geotags zurück, die innerhalb des angegebenen Radius von der angegebenen Position
+      entfernt sind. Es verwendet den Satz des Pythagoras, um die Entfernung zwischen jedem Geotag 
       und der angegebenen Position zu berechnen und gibt nur die Geotags zurück, deren Entfernung kleiner 
       oder gleich dem angegebenen Radius ist.
     */
@@ -55,11 +50,8 @@ class InMemoryGeoTagStore {
     }
   
     /*
-    Diese Methode nimmt die Breitengrad-, Längengrad-, Radius- und Suchbegriffwerte als Eingabeparameter 
-    entgegen und gibt ein Array von Geotags zurück, die dem Suchbegriff entsprechen und innerhalb des 
-    angegebenen Radius von der angegebenen Position entfernt sind. Zunächst ruft es die getNearbyGeoTags-Methode auf, 
-    um alle Geotags innerhalb des angegebenen Radius abzurufen, und filtert dann die Ergebnisse auf der Grundlage, 
-    ob der Name oder das Hashtag des Geotags den Suchbegriff enthält.
+    Diese Methode gibt ein Array von Geotags zurück, die dem Suchbegriff entsprechen und innerhalb des 
+    angegebenen Radius von der angegebenen Position entfernt sind.
     */
     searchNearbyGeoTags(latitude, longitude, radius, searchterm) {
       return this.getNearbyGeoTags(latitude, longitude, radius).filter(

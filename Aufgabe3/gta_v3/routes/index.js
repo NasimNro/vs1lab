@@ -29,13 +29,13 @@ const GeoTag = require("../models/geotag");
  * TODO: implement the module in the file "../models/geotag-store.js"
  */
 // eslint-disable-next-line no-unused-vars
-const GeoTagExamples = require("../models/geotag-examples");
+const GeoTagExamples = require("../models/geotag-examples");                //Aufgabe 3.2.1
 const GeoTagStore = require("../models/geotag-store");
 const store = new GeoTagStore();
 GeoTagExamples.tagList.forEach(([name, latitude, longitude, hashtag]) =>
   store.addGeoTag(new GeoTag(latitude, longitude, name, hashtag))
 );
-const DEFAULT_RADIUS = 10000;
+const DEFAULT_RADIUS = 10;
 
 /**
  * Route '/' for HTTP 'GET' requests.
@@ -98,20 +98,14 @@ router.post("/tagging", (req, res) => {
 router.post("/discovery", (req, res) => {
   const { discovery_search, discovery_latitude, discovery_longitude } = req.body;
   let tags = [];
-  if (discovery_search) {
+  
     tags = store.searchNearbyGeoTags(
       discovery_latitude,
       discovery_longitude,
       DEFAULT_RADIUS,
       discovery_search
     );
-  } else {
-    tags = store.getNearbyGeoTags(
-      discovery_latitude,
-      discovery_longitude,
-      DEFAULT_RADIUS
-    );
-  }
+    
   return res.render("index", {
     taglist: tags,
     latitude: discovery_latitude,
