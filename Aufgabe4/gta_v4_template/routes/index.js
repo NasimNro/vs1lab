@@ -133,7 +133,7 @@ router.get("/api/geotags", (req, res) => {
   const searchterm = req.query.searchterm;
   const latitude = req.query.latitude;
   const longitude = req.query.longitude;
-  const page = req.query.page ?? 1;
+
 
   let tags = [];
   if (searchterm && latitude && longitude) {
