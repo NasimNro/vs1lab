@@ -99,13 +99,17 @@ router.post("/discovery", (req, res) => {
   const { discovery_search, discovery_latitude, discovery_longitude } = req.body;
   let tags = [];
   
+  if(discovery_search){
     tags = store.searchNearbyGeoTags(
       discovery_latitude,
       discovery_longitude,
       DEFAULT_RADIUS,
       discovery_search
     );
-    
+  } else {
+    tags = store.getNearbyGeoTags(discovery_latitude, discovery_longitude, DEFAULT_RADIUS);
+  }
+
   return res.render("index", {
     taglist: tags,
     latitude: discovery_latitude,

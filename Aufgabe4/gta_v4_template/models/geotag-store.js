@@ -24,6 +24,10 @@
  */
 class InMemoryGeoTagStore {
     #geotags = [];
+
+    getGeoTags() {
+      return this.#geotags;
+    }
   
     addGeoTag(geotag) {
       this.#geotags.push(geotag);
@@ -31,6 +35,20 @@ class InMemoryGeoTagStore {
   
     removeGeoTag(name) {
       this.#geotags = this.#geotags.filter((geotag) => geotag.name !== name);
+    }
+
+    getGeoTagById(id) {
+      return this.#geotags.find((geotag) => geotag.id === id);
+    }
+
+
+
+    searchGeoTags(searchterm) {
+      return this.#geotags.filter((geotag) => {
+        return (
+          geotag.name.includes(searchterm) || geotag.hashtag.includes(searchterm)
+        );
+      });
     }
   
     /*
@@ -62,6 +80,24 @@ class InMemoryGeoTagStore {
           );
         }
       );
+    }
+
+    removeGeoTagById(id) {
+      const deletedTag = this.#geotags.find((geotag) => geotag.id === id);
+      this.#geotags = this.#geotags.filter((geotag) => geotag.id !== id);
+  
+      return deletedTag;
+    }
+
+    updateGeoTag(id, { name, hashtag, latitude, longitude }) {
+      const updatedGeotag = this.#geotags.find((geotag) => geotag.id === id);
+      if (updatedGeotag) {
+        if (name) updatedGeotag.name = name;
+        if (hashtag) updatedGeotag.hashtag = hashtag;
+        if (latitude) updatedGeotag.latitude = latitude;
+        if (longitude) updatedGeotag.longitude = longitude;        
+      }
+      return updatedGeotag;
     }
   }
   

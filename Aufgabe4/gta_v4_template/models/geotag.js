@@ -5,6 +5,8 @@
  * Complete all TODOs in the code documentation.
  */
 
+const generateId = require("../utils/generate-id");
+
 /** *
  * A class representing geotags.
  * GeoTag objects should contain at least all fields of the tagging form.
@@ -15,6 +17,8 @@ class GeoTag {
       this.longitude = longitude;
       this.name = name;
       this.hashtag = hashtag;
+      this.id = generateId();
+
     }
   }
   
