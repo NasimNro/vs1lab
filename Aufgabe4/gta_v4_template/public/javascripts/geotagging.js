@@ -48,7 +48,7 @@ function updateLocation() {
 
 async function updatePageContent(tagsResponse = undefined) {
   console.log("updatePageContent", tagsResponse);
-  const mapManager = new MapManager(MAP_QUEST_API_KEY);
+  const mapManager = new MapManager("3VkrTyuWjAmV5eQbS0EsHC7jVrtsSoyg");
   let data = tagsResponse;
   if (data === undefined) {
     const hiddenLatitude = document.getElementById("discovery_latitude")?.value;
