@@ -60,7 +60,9 @@ async function updatePageContent(tagsResponse = undefined) {
     if (hiddenLongitude) queryParameters.append("longitude", hiddenLongitude);
     const geotagsResponse = await fetch(`/api/geotags?${queryParameters}`);
     data = await geotagsResponse.json();
+    
   }
+  
 
 
   const mapViewElement = document.getElementById("mapView");
@@ -69,6 +71,8 @@ async function updatePageContent(tagsResponse = undefined) {
 
   const discoveryResultsElement = document.getElementById("discoveryResults");
   discoveryResultsElement.innerHTML = ""; // clear all li elements
+  console.log("records" + data.records);
+  console.log("haha" + data);
   data.records.forEach(({ name, latitude, longitude, hashtag }) => {
     const li = document.createElement("li");
     li.innerHTML = `${name} (${latitude}, ${longitude}) ${hashtag}`;
